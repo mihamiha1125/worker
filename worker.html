@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ワーカー登録フォーム</title>
+  <link rel="stylesheet" href="./css/worker.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+</head>
+<body>
+  <div class="form-container">
+    <form id="workerForm">
+
+      <!-- ステップ1 -->
+      <div class="step active">
+        <h2>ステップ1：「どのような手伝いができそうですか？」</h2>
+        <p>以下から当てはまるものを選んでください（複数選択OK）</p>
+        <label><input type="checkbox" name="skills" value="外作業"> 草むしりなどの外作業</label>
+        <label><input type="checkbox" name="skills" value="力仕事"> 荷物運び・ゴミ出しなどの力仕事</label>
+        <label><input type="checkbox" name="skills" value="家具修理"> 家具の組み立て・修理</label>
+        <label><input type="checkbox" name="skills" value="買い物代行"> お買い物の代行</label>
+        <label><input type="checkbox" name="skills" value="機械操作"> スマホの設定などの機械操作サポート</label>
+        <label><input type="checkbox" name="skills" value="見守り"> お話相手・見守りなど</label>
+        <label><input type="checkbox" name="skills" value="その他"> その他：<input type="text" name="skillsOther" /></label>
+        <div class="buttons">
+          <button type="button" onclick="nextStep()">次へ</button>
+        </div>
+      </div>
+
+      <!-- ステップ2 -->
+      <div class="step">
+        <h2>ステップ2：「いつ働けそうですか？」</h2>
+        <label><input type="radio" name="availability" value="平日昼間"> 平日昼間（〇時〜〇時）</label>
+        <label><input type="radio" name="availability" value="平日夕方夜"> 平日夕方〜夜</label>
+        <label><input type="radio" name="availability" value="土日祝"> 土日祝</label>
+        <label><input type="radio" name="availability" value="不定期"> スキマ時間で不定期</label>
+        <label><input type="radio" name="availability" value="相談"> 相談したい</label>
+        <div class="buttons">
+          <button type="button" onclick="prevStep()">戻る</button>
+          <button type="button" onclick="nextStep()">次へ</button>
+        </div>
+      </div>
+
+      <!-- ステップ3 -->
+      <div class="step">
+        <h2>ステップ3：「ご自宅の最寄り駅は？」</h2>
+        <label>駅名：<input type="text" name="station" placeholder="例：白楽駅" /></label>
+        <div class="buttons">
+          <button type="button" onclick="prevStep()">戻る</button>
+          <button type="button" onclick="nextStep()">次へ</button>
+        </div>
+      </div>
+
+      <!-- ステップ4 -->
+      <div class="step">
+        <h2>ステップ4：「簡単な自己紹介をお願いします」</h2>
+        <textarea name="selfIntro" rows="4" placeholder="依頼者が安心できるように表示されます"></textarea>
+        <div class="buttons">
+          <button type="button" onclick="prevStep()">戻る</button>
+          <button type="button" onclick="nextStep()">次へ</button>
+        </div>
+      </div>
+
+      <!-- ステップ5 -->
+      <div class="step">
+        <h2>🟦 ステップ5：「連絡方法を選んでください」</h2>
+      
+        <label>
+          <input type="radio" name="contactMethod" value="電話" onclick="togglePhoneTime(true)"> 電話で連絡してほしい（時間帯指定）
+        </label>
+        <div id="phoneTimeField" style="display: none; margin-left: 1em;">
+          希望時間帯：<input type="text" name="phoneTime" placeholder="例：13時〜15時" />
+        </div>
+      
+        <label><input type="radio" name="contactMethod" value="メール" onclick="togglePhoneTime(false)"> メールで連絡してほしい</label>
+        <label><input type="radio" name="contactMethod" value="LINE" onclick="togglePhoneTime(false)"> LINEで連絡してほしい</label>
+      
+        <label>お名前：<input type="text" name="name" required /></label>
+        <label>連絡先：<input type="text" name="contactInfo" required /></label>
+      
+        <div class="buttons">
+          <button type="button" onclick="prevStep()">戻る</button>
+          <button type="button" onclick="showConfirm()">内容を確認する</button>
+        </div>
+      </div>
+
+      <!-- 確認画面 -->
+      <div class="step" id="confirm">
+        <h2>登録内容のご確認</h2>
+        <div id="confirmArea"></div>
+        <div class="buttons">
+          <button type="button" onclick="prevStep()">戻る</button>
+          <button type="submit">登録を送信する</button>
+        </div>
+      </div>
+
+      <!-- サンクス画面 -->
+      <div class="step" id="thankyou">
+        <h2>🟢 ご登録ありがとうございます！</h2>
+        <p>担当者よりご連絡のうえ、本人確認（身分証の提示）を行います。</p>
+        <p>📞 お問い合わせ：0120-xxxx-xxx（MinHubサポート）</p>
+        <div class="buttons">
+          <a href="index.html"><button type="button">トップに戻る</button></a>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <script src="./js/worker.js"></script>
+</body>
+</html>
