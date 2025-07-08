@@ -89,7 +89,6 @@ document.getElementById('workerForm').addEventListener('submit', function (e) {
 
   fetch("https://script.google.com/macros/s/AKfycbwx4aKUEJUg1_DVUlZxZVonhlM3NtSqIfOi82N381Xv6WpW0Kv2G2bW_yP7MMt5txMqUA/exec", {
     method: "POST",
-    body: formData  // ✅ FormData形式で送信
   })
     .then(() => {
       currentStep++;
