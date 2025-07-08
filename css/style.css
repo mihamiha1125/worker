@@ -1,0 +1,258 @@
+body {
+    font-family: 'Kosugi Maru', sans-serif;
+    margin: 0;
+    background: #fff;
+    color: #333;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #00bfff;
+    color: white;
+  }
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  nav ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+/* ハンバーガーメニュー */
+.hamburger {
+    display: none;
+    width: 30px;
+    height: 22px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  .hamburger span {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: white;
+    border-radius: 5px;
+    left: 0;
+    transition: all 0.4s ease;
+  }
+  .hamburger span:nth-child(1) {
+    top: 0;
+  }
+  .hamburger span:nth-child(2) {
+    top: 9px;
+  }
+  .hamburger span:nth-child(3) {
+    top: 18px;
+  }
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 9px;
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 9px;
+  }
+  
+  /* ナビ開閉スタイル */
+  #navMenu {
+    display: flex;
+  }
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+    #navMenu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 60%;
+      height: 100vh;
+      background: #00bfff;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: right 0.4s ease;
+      z-index: 1000;
+    }
+    #navMenu.open {
+      right: 0;
+    }
+    #navMenu ul {
+      flex-direction: column;
+      gap: 2rem;
+      list-style: none;
+      padding: 0;
+    }
+    #navMenu a {
+      color: white;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+  }
+  
+  
+  /* Splash ロゴアニメーション */
+  .splash {
+    position: fixed;
+    background: white;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .splash .logo {
+    font-size: 3rem;
+    opacity: 0;
+  }
+  
+  /* Hero */
+  .hero {
+    background: url('../img/home-bg.jpg') no-repeat center center / cover;
+    color: white;
+    padding: 6rem 1rem;
+    text-align: center;
+    position: relative;
+  }
+  .hero-text {
+    max-width: 90%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.4); /* 半透明黒背景で可読性UP */
+    border-radius: 10px;
+  }
+  .hero-text h1 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero img {
+    width: 100%;
+    max-width: 600px;
+  }
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .cta-buttons .btn {
+    width: 220px;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+  
+  .btn {
+    background: #00bfff;
+    color: white;
+  }
+  
+  .btn.outline {
+    background: white;
+    color: #00bfff;
+    border: 2px solid #00bfff;
+  }
+  
+  .categories, .flow, .reviews, .news {
+    padding: 2rem;
+    text-align: center;
+  }
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+  .category-item {
+    background: #f0faff;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  /* タブとレビュー */
+  .tabs .tab-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .tab {
+    background: #eee;
+    border: none;
+    margin: 0 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  .tabs p {
+    text-align: center;
+  }
+  .tab.active {
+    background: #00bfff;
+    color: white;
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  
+  .review-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  .review-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    flex: 0 0 250px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+  .review-card p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  
+  .review-card img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .news-list {
+    list-style: none;
+    padding: 0;
+  }
+  .news-list li {
+    border-bottom: 1px solid #ccc;
+    padding: 0.5rem 0;
+  }
+  .news-list .date {
+    color: #00bfff;
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  

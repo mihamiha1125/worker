@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>助け合いフォーム</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/requester.css"">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+</head>
+<body>
+  <div class="form-container">
+    <form id="helpForm">
+      <!-- 各ステップ -->
+      <div class="step active" id="step1">
+        <h2>ステップ1：「どんなことでお困りですか？」</h2>
+        <p>複数選択可</p>
+        <label><input type="checkbox" name="needs" value="草むしり"> 草むしり</label>
+        <label><input type="checkbox" name="needs" value="ゴミ出し"> ゴミ出し・片付け</label>
+        <label><input type="checkbox" name="needs" value="荷物運び"> 重い荷物運び</label>
+        <label><input type="checkbox" name="needs" value="買い物"> 買い物代行</label>
+        <label><input type="checkbox" name="needs" value="家具修理"> 家具の組立・修理</label>
+        <label><input type="checkbox" name="needs" value="スマホ支援"> スマホ・機械の操作支援</label>
+        <label><input type="checkbox" name="needs" value="その他"> その他：<input type="text" name="needsOther"></label>
+        <div class="buttons">
+          <button type="button" onclick="nextStep()">次へ</button>
+        </div>
+      </div>
+
+      <div class="step" id="step2">
+        <h2>ステップ2：「いつごろ助けてほしいですか？」</h2>
+        <label><input type="radio" name="timing" value="今日中"> 今日中</label>
+        <label><input type="radio" name="timing" value="明日以降"> 明日以降</label>
+        <label><input type="radio" name="timing" value="未定"> 未定（相談したい）</label>
+        <label><input type="radio" name="timing" value="その他"> その他：<input type="text" name="timingOther"></label>
+        <div class="buttons">
+          <button type="button" onclick="prevStep()">戻る</button>
+          <button type="button" onclick="nextStep()">次へ</button>
+        </div>
+      </div>
+
+      <div class="step" id="step3">
+        <h2>ステップ3：「どこでのお手伝いですか？」</h2>
+        <label>住所または駅名：<input type="text" name="location" placeholder="例：白金1丁目"></label>
+        <div class="buttons">
+          <button type="button" onclick="prevStep()">戻る</button>
+          <button type="button" onclick="nextStep()">次へ</button>
+        </div>
+      </div>
+
+      <div class="step" id="step4">
+        <h2>ステップ4：「ご希望の連絡方法は？」</h2>
+        <label><input type="radio" name="contact" value="電話"> 電話（時間帯も）</label>
+        <label><input type="radio" name="contact" value="メール"> メール</label>
+        <label><input type="radio" name="contact" value="LINE"> LINE</label>
+        <label><input type="radio" name="contact" value="SMS"> ショートメッセージ</label>
+        <label>お名前：<input type="text" name="name" required></label>
+        <label>連絡先：<input type="text" name="contactInfo" required></label>
+        <div class="buttons">
+          <button type="button" onclick="prevStep()">戻る</button>
+          <button type="button" onclick="showConfirm()">内容を確認する</button>
+        </div>
+      </div>
+
+      <div class="step" id="step5">
+        <h2>ステップ5：入力内容のご確認</h2>
+        <div id="confirmArea"></div>
+        <div class="buttons">
+          <button type="button" onclick="prevStep()">戻る</button>
+          <button type="submit">依頼を送信する</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script src="./js/requester.js"></script>
+</body>
+</html>

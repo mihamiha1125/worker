@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MinHub</title>
+
+  <!-- Google Fonts（手書き風で優しさのあるフォント） -->
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome（アイコン用） -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/style.css" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <!-- オープニングロゴ -->
+  <div class="splash">
+    <h1 class="logo" id="minhubLogo">MinHub</h1>
+  </div>
+
+  <header>
+    <div class="logo">MinHub</div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="navMenu">
+      <ul>
+        <li><a href="#">サービス</a></li>
+        <li><a href="#">ワーカーを探す</a></li>
+        <li><a href="#">依頼したい</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+
+  <section class="hero">
+    <!-- <img src="./img/home-bg.jpg" alt="メインビジュアル" /> -->
+    <div class="hero-text">
+      <h1>駅の近くで助け合える暮らしを</h1>
+      <p>ワーカーと依頼者をつなぐ新しいコミュニティ</p>
+      <div class="cta-buttons">
+        <a href="./requester.html" class="btn"><i class="fas fa-hands-helping"></i> 依頼したい</a>
+        <a href="./worker.html" class="btn outline"><i class="fas fa-user"></i> 働きたい</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tabs">
+    <div class="tab-buttons">
+      <button class="tab active" data-tab="client">依頼者向け</button>
+      <button class="tab" data-tab="worker">ワーカー向け</button>
+    </div>
+    <div class="tab-content active" id="client">
+      <p>家事やお手伝いを気軽に頼めます。</p>
+    </div>
+    <div class="tab-content" id="worker">
+      <p>得意なことを活かして地域に貢献できます。</p>
+    </div>
+  </section>
+
+  <section class="categories">
+    <h2>カテゴリ</h2>
+    <div class="category-grid">
+      <div class="category-item"><i class="fas fa-broom"></i> 掃除</div>
+      <div class="category-item"><i class="fas fa-box"></i> 引っ越し</div>
+      <div class="category-item"><i class="fas fa-dog"></i> ペット</div>
+      <div class="category-item"><i class="fas fa-shopping-cart"></i> 買い物</div>
+    </div>
+  </section>
+
+  <section class="flow">
+    <h2>利用の流れ</h2>
+    <div class="steps">
+      <div class="step">1. 会員登録</div>
+      <div class="step">2. ワーカーを探す / 登録</div>
+      <div class="step">3. 依頼・完了</div>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <h2>利用者の声</h2>
+    <div class="review-slider">
+      <div class="review-card">
+        <img src="./img/home-bg.jpg" alt="ユーザー1">
+        <p>「とても親切なワーカーさんでした！」</p>
+      </div>
+      <div class="review-card">
+        <img src="./img/home-bg.jpg" alt="ユーザー2">
+        <p>「またお願いしたいと思います。」</p>
+      </div>
+      <div class="review-card">
+        <img src="./img/home-bg.jpg" alt="ユーザー3">
+        <p>「安心して任せられました。」</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="news">
+    <h2>お知らせ</h2>
+    <ul class="news-list">
+      <li><span class="date">2025/07/01</span> サービスエリアを拡大しました。</li>
+      <li><span class="date">2025/06/20</span> 新カテゴリ「家具組立」を追加しました。</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MinHub</p>
+  </footer>
+
+  <script src="./js/index.js"></script>
+</body>
+</html>
