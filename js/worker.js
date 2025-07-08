@@ -87,7 +87,7 @@ document.getElementById('workerForm').addEventListener('submit', function (e) {
   formData.set('skills', [...skills, skillsOther].filter(Boolean).join(', '));
   formData.delete('skillsOther');
 
-  fetch("https://script.google.com/macros/s/AKfycbypfF983dwr2vdi7w7oj2Rfwwl7Iy7pS6apg5ux7r8S/dev", {
+  fetch("https://script.google.com/macros/s/AKfycbwx4aKUEJUg1_DVUlZxZVonhlM3NtSqIfOi82N381Xv6WpW0Kv2G2bW_yP7MMt5txMqUA/exec", {
     method: "POST",
     body: formData  // ✅ FormData形式で送信
   })
